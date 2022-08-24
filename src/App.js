@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Forms from "./components/Forms";
+import TaskList from "./components/TaskList";
+import React, { useState } from "react";
 
-function App() {
+const App= () => {
+  const [input, setInput] = useState("");
+  const [taskList, setTaskList] = useState([]);
+  const [edit, setedit] = useState(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Forms
+        input={input}
+        setInput={setInput}
+        taskList={taskList}
+        setTaskList={setTaskList}
+        edit={edit}
+        setedit={setedit}
+      />
+      <TaskList
+        input={input}
+        setInput={setInput}
+        taskList={taskList}
+        setTaskList={setTaskList}
+        edit={edit}
+        setedit={setedit}
+      />
     </div>
   );
 }
